@@ -26,7 +26,7 @@ html {
     --main-text: hsl(0, 0%, 100%);
     --hover-effect: hsl(228, 28%, 25%);
 }
-html[theme="light"] {
+html[data-theme="light"] {
     /* Light theme color variables */
     --bg-pattern: hsl(0, 0%, 100%);
     --bg-top-pattern: hsl(225, 100%, 98%);
@@ -51,16 +51,22 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 35px;
     
 }
 h1, h2, .card-number, .main-dashboard .card {
     color: var(--main-text);
 }
+h1 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 14px;
+}
 .main-dashboard {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 20px;
+    column-gap: 30px;
     position: relative;
     top: -100px;
 }
@@ -69,11 +75,20 @@ h1, h2, .card-number, .main-dashboard .card {
     flex-direction: column;
     justify-content: space-around;
     background-color: var(--cardbg-pattern);
-    height: 200px;
+    height: 220px;
     border-radius: 5px;
     text-align: center;
     padding: 10px 0;
     cursor: pointer;
+}
+.card h4 {
+    display: inline-block;
+}
+.followers {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--blue-text-);
 }
 .username {
     font-size: 14px;
@@ -85,13 +100,8 @@ h1, h2, .card-number, .main-dashboard .card {
     color: var(--bright-red);
 }
 .subs-number {
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 700;
-}
-.followers {
-    color: var(--blue-text-);
-    text-transform: uppercase;
-    letter-spacing: 5px;
 }
 .username img {
     position: relative;
@@ -138,11 +148,11 @@ section > h2 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 30px;
 }
 .daily-preview .card {
     background-color: var(--cardbg-pattern);
-    height: 100px;
+    height: 110px;
     width: auto;
     border-radius: 5px;
     cursor: pointer;
@@ -153,6 +163,9 @@ section > h2 {
     align-items: baseline;
     width: 80%;
     margin: 15px auto 0px;
+}
+li h4 {
+    font-weight: 400;
 }
 .fist-list {
     align-items: center;
@@ -179,8 +192,8 @@ section > h2 {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 30px;
+    width: 40px;
+    height: 20px;
 }
 .switch input {
     opacity: 0;
@@ -203,19 +216,19 @@ section > h2 {
 .slider::before {
     position: absolute;
     content: "";
-    height: 22px;
-    width: 22px;
-    left: 4px;
-    bottom: 4px;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
     border-radius: 50%;
     background: var(--bg-top-pattern);
     -webkit-transition: .3s;
     transition: .3s;
 }
 input:checked + .slider::before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
     background: var(--bg-top-pattern);
 }
 input:checked + .slider {
@@ -224,9 +237,7 @@ input:checked + .slider {
 #toggle-name {
     display: inline-block;
     position: relative;
-    right: 15px;
-    top: 7px;
-    font-size: 18px;
+    right: 10px;
 }
 .update-positive, .update-negative, .username, .card-text {
     font-weight: 700;
@@ -238,7 +249,7 @@ input:checked + .slider {
 .attribution a { 
     color: hsl(228, 45%, 44%);
  }
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1200px) {
     .main-dashboard {
         top: -50px;
     }
@@ -252,7 +263,7 @@ input:checked + .slider {
         font-size: 25px;
     }
     .second-section {
-        top: -10px;
+        top: 0;
     }
 }
 @media screen and (max-width: 920px) {
@@ -268,6 +279,7 @@ input:checked + .slider {
         flex-direction: column;
         justify-content: space-around;
         align-items: unset;
+        padding-top: 15px;
     }
     .dashboard-title-name {
         text-align: left;
@@ -309,6 +321,12 @@ input:checked + .slider {
     }
 }
 @media screen and (max-width: 550px) {
+    .dashboard-top {
+        height: 30vh;
+    }
+    .dashboard-title {
+        padding-top: 10px;
+    }
     .main-dashboard {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         top: -20px;
